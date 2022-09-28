@@ -4,6 +4,8 @@ defmodule ElixirInterviewStarter do
   """
 
   alias ElixirInterviewStarter.CalibrationSession
+  alias ElixirInterviewStarter.CalibrationSupervisor
+  alias ElixirInterviewStarter.Managers.CalibrationManager
 
   @spec start(user_email :: String.t()) :: {:ok, CalibrationSession.t()} | {:error, String.t()}
   @doc """
@@ -12,9 +14,7 @@ defmodule ElixirInterviewStarter do
 
   If the user already has an ongoing `CalibrationSession`, returns an error.
   """
-  def start(_user_email) do
-    {:ok, %CalibrationSession{}}
-  end
+  defdelegate start(user_email), to: CalibrationSupervisor, as: :start_calibration_session
 
   @spec start_precheck_2(user_email :: String.t()) ::
           {:ok, CalibrationSession.t()} | {:error, String.t()}
@@ -25,15 +25,13 @@ defmodule ElixirInterviewStarter do
   with precheck 1, or their calibration session has already completed precheck 2, returns
   an error.
   """
-  def start_precheck_2(_user_email) do
-    {:ok, %CalibrationSession{}}
-  end
+  defdelegate start_precheck_2(user_email), to: CalibrationManager, as: :start_precheck_2
 
   @spec get_current_session(user_email :: String.t()) :: {:ok, CalibrationSession.t() | nil}
   @doc """
   Retrieves the ongoing `CalibrationSession` for the provided user, if they have one
   """
-  def get_current_session(_user_email) do
-    {:ok, nil}
-  end
+  defdelegate get_current_session(user_email),
+    to: CalibrationManager,
+    as: :get_calibration_session
 end
