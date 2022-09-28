@@ -7,5 +7,11 @@ defmodule ElixirInterviewStarter.CalibrationSession do
 
   @type t() :: %__MODULE__{}
 
-  defstruct []
+  defstruct calibration_state: nil,
+            cartridge_status: nil,
+            submerged_in_water: nil,
+            precheck_1: nil,
+            precheck_2: nil,
+            calibrated: nil,
+            user_email: nil
 end

@@ -2,6 +2,11 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+config :elixir_interview_starter,
+  precheck1_timeout: String.to_integer(System.get_env("PRE_CHECK1_TIMEOUT") || "30000"),
+  precheck2_timeout: String.to_integer(System.get_env("PRE_CHECK2_TIMEOUT") || "30000"),
+  calibration_timeout: String.to_integer(System.get_env("CALIBRATION_TIMEOUT") || "100000")
+
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,
