@@ -1,0 +1,6 @@
+{
+  "skip_files": [
+    "lib/device_messages.ex",
+    "lib/calibration_session.ex"
+  ]
+}
