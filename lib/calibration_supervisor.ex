@@ -6,7 +6,6 @@ defmodule ElixirInterviewStarter.CalibrationSupervisor do
   @supervisor __MODULE__
 
   alias ElixirInterviewStarter.Managers.CalibrationManager
-  # alias ElixirInterviewStarter.CalibrationSession
 
   @doc """
   Starts the supervisor.

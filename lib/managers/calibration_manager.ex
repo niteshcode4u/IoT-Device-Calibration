@@ -7,7 +7,7 @@ defmodule ElixirInterviewStarter.Managers.CalibrationManager do
 
   use GenServer, restart: :transient
 
-  @precheck1_timeout Application.compile_env(:elixir_interview_starter, [:precheck1_timeout])
+  @precheck1_timeout Application.compile_env(:elixir_interview_starter, :precheck1_timeout)
   @precheck2_timeout Application.compile_env(:elixir_interview_starter, :precheck2_timeout)
   @calibration_timeout Application.compile_env(:elixir_interview_starter, :calibration_timeout)
   @completed_states ~w(precheck1Completed precheck2Completed calibrationCompleted)
